@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.aytachuseynli.navigationcomponentusage.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/toResult"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="no name" />
+        <argument
+            android:name="age"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="person"
+            app:argType="com.aytachuseynli.navigationcomponentusage.Persons" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.aytachuseynli.navigationcomponentusage.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.aytachuseynli.navigationcomponentusage.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/toGame"
+            app:destination="@id/gameFragment" />
+    </fragment>
+</navigation>
